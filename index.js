@@ -17,18 +17,8 @@ express()
   .get('/cool', (req, res) => res.send(cool()))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
-  client.on("ready", () => {
-    console.log(`Estou on na AvalonNetwork com ${client.users.size} players!`); 
-    client.user.setActivity(`@Network_Avalon`);
-  });
-
-
-  client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`);
-  });
-  
   client.on('message', msg => {
-    if (msg.content === '!bot') {
+    if (msg.startsWith ('!bot')) {
       msg.reply('antiafk');
     }
   });
