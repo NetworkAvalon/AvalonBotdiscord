@@ -23,9 +23,12 @@ express()
     }
   });
 
-  client.on('message', msg => {
-    if (msg.content === '!bot') {
-      msg.channel.send('!loop');
+  client.on('message', function(message) {
+    if (message.content === "!loop") { 
+        var interval = setInterval (function () {
+          client.channels.get("493228844896092162").send("antiafk")
+            .catch(console.error);
+        }, 5 * 60000); 
     }
   });
 
