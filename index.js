@@ -19,7 +19,7 @@ express()
 
   client.on('message', msg => {
     if (msg.content === '!bot') {
-      msg.reply('antiafk');
+      msg.channel.send('antiafk');
     }
   });
 
