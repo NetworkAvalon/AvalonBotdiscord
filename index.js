@@ -18,7 +18,7 @@ express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
   client.on('message', msg => {
-    if (msg.startsWith ('!bot')) {
+    if (msg.content === '!bot') {
       msg.reply('antiafk');
     }
   });
