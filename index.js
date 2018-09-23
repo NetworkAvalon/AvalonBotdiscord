@@ -32,8 +32,8 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
-if(command === "bot"){
-    client.channels.get("493228844896092162").send("!ip")
+if(message.startsWith("!bot")){
+    client.channels.get("493228844896092162").send("antiafk")
 }
 });
 
