@@ -23,4 +23,10 @@ express()
     }
   });
 
+  client.on('message', msg => {
+    if (msg.content === '!bot') {
+      msg.channel.send('!loop');
+    }
+  });
+
 client.login(config.token);
