@@ -23,18 +23,14 @@ express()
   });
 
 
-client.on("message", async message => {
+  client.on('ready', () => {
+    console.log(`Logged in as ${client.user.tag}!`);
+  });
   
-  if(message.author.bot) return;
-  
-  if(message.content.indexOf(config.prefix) !== 0) return;
-  
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
-
-if(message.startsWith("!bot")){
-    client.channels.get("493228844896092162").send("antiafk")
-}
-});
+  client.on('message', msg => {
+    if (msg.content === '!bot') {
+      msg.reply('antiafk');
+    }
+  });
 
 client.login(config.token);
